@@ -17,14 +17,3 @@ variable "environment" {
   description = "Середовище проекту"
   type        = string
 }
-
-variable "repository-name" {
-  description = "Repository name"
-  type        = string
-  default     = ""
-  validation {
-    condition = var.repository-name != ""
-    error_message = "Вкажіть назву репозиторію"
-
-  }
-}

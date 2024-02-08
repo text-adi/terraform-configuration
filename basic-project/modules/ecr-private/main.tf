@@ -2,7 +2,7 @@ module "aws-ecr" {
   source  = "terraform-aws-modules/ecr/aws"
   version = "1.6.0"
 
-  repository_name = var.repository-name
+  repository_name = var.name-project
 
   # Lifecycle policy
   repository_lifecycle_policy = jsonencode({
