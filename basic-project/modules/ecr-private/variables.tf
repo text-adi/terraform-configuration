@@ -6,9 +6,9 @@ variable "aws-region" {
 variable "name-project" {
   description = "Назва проекту, потрібно змінити"
   type        = string
-  default     = "<name-project>"
+  default     = ""
   validation {
-    condition = strcontains("<name-project>", var.name-project)
+    condition = var.name-project != ""
     error_message = "Вкажіть назву проекту"
 
   }
@@ -21,9 +21,9 @@ variable "environment" {
 variable "repository-name" {
   description = "Repository name"
   type        = string
-  default     = "<name-repo>"
+  default     = ""
   validation {
-    condition = strcontains("<name-repo>", var.repository-name)
+    condition = var.repository-name != ""
     error_message = "Вкажіть назву репозиторію"
 
   }
