@@ -8,7 +8,7 @@ variable "name-project" {
   type        = string
   default     = ""
   validation {
-    condition = var.name-project != ""
+    condition = var.name-project == ""
     error_message = "Вкажіть назву проекту"
 
   }
@@ -23,7 +23,7 @@ variable "repository-name" {
   type        = string
   default     = ""
   validation {
-    condition = var.repository-name != ""
+    condition = var.repository-name == ""
     error_message = "Вкажіть назву репозиторію"
 
   }
