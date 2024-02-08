@@ -1,7 +1,7 @@
 variable "aws-region" {
   description = "AWS Region для якого будуть здійснені налаштування"
   type        = string
-  default     = "eu-central-1"
+  default     = ""
 }
 # налаштування проекту
 variable "name-project" {
@@ -9,10 +9,14 @@ variable "name-project" {
   type        = string
   default     = "<name-project>"
   validation {
-    condition = strcontains("<name-project>", var.name-project)
+    condition     = strcontains("<name-project>", var.name-project)
     error_message = "Вкажіть назву проекту"
-
   }
+}
+
+variable "environment" {
+  description = "Середовище проекту"
+  type        = string
 }
 
 variable "github-repo" {
@@ -22,7 +26,7 @@ variable "github-repo" {
     "repo:<owner>/<repo-name>:<branch>",
   ]
   validation {
-    condition = strcontains("repo:<owner>/<repo-name>:<branch>", var.github-repo)
+    condition     = strcontains("repo:<owner>/<repo-name>:<branch>", var.github-repo)
     error_message = "Вкажіть github репозиторій, який буде використовуватися"
   }
 }

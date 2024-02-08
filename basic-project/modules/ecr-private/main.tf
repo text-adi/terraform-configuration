@@ -12,22 +12,9 @@ module "aws-ecr" {
         description  = "Delete old images",
         selection    = {
           tagStatus      = "tagged",
-          tagPatternList = ["*-prod"],
+          tagPatternList = ["*"],
           countType      = "imageCountMoreThan",
           countNumber    = 3
-        },
-        action = {
-          type = "expire"
-        }
-      },
-      {
-        rulePriority = 2,
-        description  = "Delete old images",
-        selection    = {
-          tagStatus      = "tagged",
-          tagPatternList = ["*-dev"],
-          countType      = "imageCountMoreThan",
-          countNumber    = 2
         },
         action = {
           type = "expire"
@@ -47,4 +34,7 @@ module "aws-ecr" {
       filter_type    = "WILDCARD"
     }
   ]
+  tags = {
+    Name = var.name-project
+  }
 }

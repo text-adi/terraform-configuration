@@ -1,7 +1,6 @@
 module "iam_github_oidc_provider" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-github-oidc-provider"
   version = "5.34.0"
-
 }
 
 module "iam_iam-github-oidc-role" {
@@ -10,9 +9,13 @@ module "iam_iam-github-oidc-role" {
 
   provider_url = module.iam_github_oidc_provider.url
 
-  name     = "github-actions-role-${var.name-project}"
+  name     = "github-actions-role-${var.name-project}-${var.environment}"
   subjects = var.github-repo
   policies = {
     ECRPushImage = "arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicPowerUser"
+  }
+  tags = {
+    Name        = var.name-project
+    Environment = var.environment
   }
 }
