@@ -9,7 +9,7 @@ variable "name-project" {
   type        = string
   default     = ""
   validation {
-    condition = var.name-project == ""
+    condition = var.name-project != ""
     error_message = "Вкажіть назву проекту"
 
   }
