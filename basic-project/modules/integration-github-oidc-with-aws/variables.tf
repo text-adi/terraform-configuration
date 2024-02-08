@@ -22,11 +22,5 @@ variable "environment" {
 variable "github-repo" {
   description = "Для якого репозиторію, здійснюються налаштування. Рекомендується, використовувати єдиний репо, але вказувати гілки з якими працюємо"
   type        = list(string)
-  default     = [
-    "repo:<owner>/<repo-name>:<branch>",
-  ]
-  validation {
-    condition     = strcontains("repo:<owner>/<repo-name>:<branch>", var.github-repo)
-    error_message = "Вкажіть github репозиторій, який буде використовуватися"
-  }
+  default     = []
 }
