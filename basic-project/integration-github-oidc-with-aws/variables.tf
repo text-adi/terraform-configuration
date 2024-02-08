@@ -10,6 +10,8 @@ variable "name-project" {
   default     = "<name-project>"
   validation {
     condition = strcontains("<name-project>", var.name-project)
+    error_message = "Вкажіть назву проекту"
+
   }
 }
 
@@ -21,5 +23,6 @@ variable "github-repo" {
   ]
   validation {
     condition = strcontains("repo:<owner>/<repo-name>:<branch>", var.github-repo)
+    error_message = "Вкажіть github репозиторій, який буде використовуватися"
   }
 }
