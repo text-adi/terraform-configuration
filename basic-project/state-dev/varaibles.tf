@@ -11,3 +11,11 @@ variable "name-project" {
 variable "environment" {
   type = string
 }
+
+variable "github-repo" {
+  type = list(string)
+}
+
+variable "count-save-docker-image" {
+  type = number
+}
